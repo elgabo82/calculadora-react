@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import * as math from 'mathjs';
+
 import './App.css';
 
 import { BotonComponent } from './components/BotonComponent';
@@ -14,6 +16,17 @@ function App() {
   const ingresarTexto = (valor) => {        
     setTexto((texto) => [...texto, valor + " "]);    
   };
+
+  const mostrarResultado = () => {
+    const r = texto.join(""); // quita las comas
+    setResultado(math.evaluate(r));
+
+  };
+
+  const limpiarTexto = () => {
+    setTexto("");
+    setResultado("");
+  }
 
   return (
     <div className="App">
@@ -43,10 +56,10 @@ function App() {
         <div className="fila">
           <BotonComponent simbolo='.' hClic={ingresarTexto}/>
           <BotonComponent simbolo='0' hClic={ingresarTexto}/>
-          <BotonComponent simbolo='=' hClic={ingresarTexto}/>
+          <BotonComponent simbolo='=' hClic={mostrarResultado}/>
           <BotonComponent simbolo='/' hClic={ingresarTexto}color={colorBoton} />
         </div>
-        <BotonComponent simbolo='C' color="lightblue" hClic={ingresarTexto}/>
+        <BotonComponent simbolo='C' color="lightblue" hClic={limpiarTexto}/>
         
       </div>
     </div>
