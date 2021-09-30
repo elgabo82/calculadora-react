@@ -1,0 +1,21 @@
+.display {
+    height: 10em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.resultado {
+    flex: 1;
+    font-size: 18px;
+    color: black;
+}
+
+
+.texto {
+    flex: 1;
+    font-size: 18px;
+    color: black;
+}
